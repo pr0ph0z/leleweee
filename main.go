@@ -35,7 +35,7 @@ func main() {
 					var userRegexTweet = userPattern.ReplaceAllString(userTweet.Text, "")
 					var urlPattern = regexp.MustCompile(`\s?https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)`)
 					var urlRegexTweet = urlPattern.ReplaceAllString(userRegexTweet, "")
-					var vowelPattern = regexp.MustCompile(`[aiueo]`)
+					var vowelPattern = regexp.MustCompile(`[aiueoAIUEO]`)
 					var replaceTweet = vowelPattern.ReplaceAllString(urlRegexTweet, "i")
 
 					statusUpdateParams := &twitter.StatusUpdateParams{InReplyToStatusID: mention.ID}
